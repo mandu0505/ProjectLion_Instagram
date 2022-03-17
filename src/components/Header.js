@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { AiFillHome, AiOutlineHeart } from "react-icons/ai";
 import { BiPaperPlane, BiSearchAlt2 } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
 import { FaRegCompass } from "react-icons/fa";
 import { FiPlusSquare } from "react-icons/fi";
 import logo from "../components/logo.png";
+import Profile from "./Profile";
+import Heart from "./Heart";
 
 const SHeader = styled.header`
   width: 100%;
@@ -55,9 +56,14 @@ const Icon = styled.span`
 const IconsContainer = styled.div`
   display: flex;
   align-items: center;
+  .popup,
+  .heart,
+  .profile {
+    cursor: pointer;
+  }
 `;
 
-function Header() {
+function Header({ toggle }) {
   return (
     <SHeader>
       <Wrapper>
@@ -78,17 +84,17 @@ function Header() {
             <Icon>
               <BiPaperPlane />
             </Icon>
-            <Icon>
-              <FiPlusSquare />
+            <Icon className="popup">
+              <FiPlusSquare onClick={toggle} />
             </Icon>
             <Icon>
               <FaRegCompass />
             </Icon>
-            <Icon>
-              <AiOutlineHeart />
+            <Icon className="heart">
+              <Heart />
             </Icon>
-            <Icon>
-              <CgProfile />
+            <Icon className="profile">
+              <Profile />
             </Icon>
           </IconsContainer>
         </Column>
