@@ -1,7 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Header from "./components/Header";
-import Popup from "./components/Popup";
+import Carousel from "./components/Body/Carousel";
+import Header from "./components/Navbar";
+import Popup from "./components/Navbar/Popup";
+import SideBanner from "./components/SideBanner";
 
 const Head = styled.div`
   &.active {
@@ -18,10 +20,13 @@ function App() {
     setPopup(popup === "popup" ? "popup active" : "popup");
     setBlur(blur === "blur" ? "blur active" : "blur");
   };
+
   return (
     <>
       <Head className={blur}>
         <Header toggle={toggle} />
+        <Carousel />
+        <SideBanner />
       </Head>
       <Popup toggle={toggle} popup={popup} />
     </>
